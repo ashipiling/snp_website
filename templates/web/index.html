@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css"> 
+    body{ background-color: #EAE9E5; max-width: 1100px; margin:0 auto}
+
+    .data_analysis:hover, .snp_align:hover , .upload_data:hover{
+      transform: scale(1.06);
+    }
+    .dropdown-content {
+      display: none;
+      width: 88%;
+      position: absolute;
+      background-color: #42a185;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      margin-top: 165px;
+      margin-left: 2%;
+      padding: 12px;
+    }
+    .align_div {
+      display: none;
+      width: 88%;
+      position: absolute;
+      background-color: #b1b461;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      margin-top: 165px;
+      margin-left: 2%;
+      padding: 12px;
+    }
+    .upload_div {
+      display: none;
+      width: 88%;
+      position: absolute;
+      background-color: #2889a6;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      margin-top: 165px;
+      margin-left: 2%;
+      padding: 12px;
+    }
+    .dropdown-content a {
+        font:18px Helvetica bold;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .data_analysis:hover .dropdown-content {
+      display: block;
+    }
+    .snp_align:hover .align_div {
+      display: block;
+    }
+    .upload_data:hover .upload_div {
+      display: block;
+    }
+    .dropdown-content a:hover {background-color: #3a8d74}
+
+    .title-banner {
+      background:url(/static/css/1_2.jpg);
+      background-repeat: repeat-x;
+        background-color: transparent;
+        background-position: left;
+        width: 100%;
+        height: 145px;
+        margin:0 auto;
+        position: absolute;
+        top: 0px;
+    }
+        .title-banner .title-banner-image {
+          background-image: url(/static/css/1.jpg);
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: right;
+            position: absolute;
+            top: 0px;
+            height: 145px;
+            margin-top: 0px;
+            margin-right: 0px;
+            width: 100%;
+          }
+        .title-banner .top-banner-inline {
+            display: inline-block;
+            color:red;}
+
+    .parent>input:first-of-type {
+        /*输入框高度设置为40px, border占据2px，总高度为42px*/
+        width: 480px;
+        height: 40px; 
+        border: 1px solid #ccc;
+        font-size: 16px;
+        outline: none;
+    }
+
+    .parent>input:first-of-type:focus {
+        border: 1px solid #317ef3;
+        padding-left: 10px;
+    }
+
+    .parent>input:last-of-type {
+        /*button按钮border并不占据外围大小，设置高度42px*/
+        width: 100px;
+        height: 44px; 
+        background: #0f304b;
+        border: 1px solid #317ef3;
+        color: #fff;
+        font-size: 16px;
+        outline: none;
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+<div class="title-banner">
+  <div class="title-banner-image">
+    <h1 style="color:#DAA406; margin-top: 45px; margin-left: 10px;">CATG实验室SNP数据库</h1>
+  </div>
+</div>
+
+
+<div class="intro_news" style="height:250px; margin-top: 165px; margin-left: 20px;">
+  <div id="intro" style="width: 55%; float: left; margin-left: 10px;">
+    <h2>
+    <span style="font-family: Helvetica">SNP</span>
+    <span>工具介绍</span>
+    </h2>
+    <h3 style="text-indent:2em;line-height: 30px; height: 220px; overflow:hidden">单核苷酸多态性主要是指在基因组水平上由单个核苷酸的变异所引起的DNA序列多态性。Data Analysis工具用来展示各菌种的SNP分布情况，Snp Align和Upload Data工具仅支持Excel文件上传，Excel填写的格式请依据“SNP上传模版.xls”。Snp Align工具上传的文件使用过后不会被保留。Upload Data工具不检查数据是否有问题，请保证上传的数据正确。</h3>
+  </div>
+
+  <div class="news_box" style="width: 38%; height: 100%; float: right; margin-right: 3%; margin-top: 25px;background: #ebf8f7; font-weight: bold; box-shadow: inset 2px 2px 10px #f4f9f9,2px 2px 10px #020; overflow:hidden">
+
+      <h2 id="news_title" style="font-family: Helvetica; height: 25px; margin-top: 0px; padding: 3px; background: #83c3be;">News</h2>
+      <ul>
+          <li><a href="analyse">更新Snp Align的内部算法，实现多菌种同时比对。</a><p>2020-05-11</p></li>
+          <li><a href="#">菌种初始数据上传完成。</a><p>2020-05-09</p></li>     
+          <li><a href="#">SNP数据库创建完成。</a><p>2020-05-05</p></li>
+      </ul>
+  </div>
+</div>
+
+
+<div class="tools" style="width: 94.5%; height: 415px; background-color: #e3e2de; margin-top: 80px; margin-left:30px;">
+
+  <div class="imgtool" style="height: 200px; border: 1px #e3e2de solid; padding-left: 20px; padding-top: 40px; padding-right: 10px;">
+    <div class="data_analysis" style="width: 32%; height: 96%; background: url(/static/css/analysis.png) no-repeat; display: inline-block; float:left">
+        <div class="dropdown-content" >
+          <a href="#">Salmonella</a>
+          <a href="#">Listeria</a>
+          <a href="#">Staphylococcus</a>
+        </div>
+    </div>
+    <div class="snp_align" style="width: 33%; height: 96%; background: url(/static/css/align.png) no-repeat; display: inline-block;">
+      <div class="align_div">请选择菌种：
+        <select class="align_select" style="width: 170px; ">
+          <option value="Salmonella">Salmonella</option>
+          <option value="Listeria">Listeria</option>
+          <option value="Staphylococcus">Staphylococcus</option>
+        </select>
+        <br><br>
+        <form enctype="multipart/form-data" action="/uploadFile/" method="post" style="width: 400px">请选择文件：
+           <input type="file" name="myfile" />
+           <br><br>上传并比对：
+           <input type="submit" value="按我！" />  
+        </form>
+      </div>
+    </div>
+    <div class="upload_data" style="width: 32%; height: 96%; background: url(/static/css/6.png) no-repeat; display: inline-block;">
+
+      <div class="upload_div">请选择菌种：
+        <select class="align_select" style="width: 170px; ">
+          <option value="Salmonella">Salmonella</option>
+          <option value="Listeria">Listeria</option>
+          <option value="Staphylococcus">Staphylococcus</option>
+        </select>
+        <br><br>
+        <form enctype="multipart/form-data" action="/uploadFile/" method="post" style="width: 400px">请选择文件：
+           <input type="file" name="myfile" />
+           <br><br>上 &nbsp; &nbsp; &nbsp; &nbsp; 传 &nbsp; ：
+           <input type="submit" value="按我！" />  
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="searchtool" style="width: 600px; height: 50px; margin: 10px auto; ">
+    <h2 style="font-family: Helvetica; ">BLAST</h2>
+      <form action="" class="parent" style="width: 100%; height: 42px; ">
+          <input type="text">
+          <input type="button" value="Search">
+      </form>
+      <p style="color: #666666; margin-top: 15px">Enter organism common name, scientific name, or tax id.</p>
+  </div>
+
+</div>
+
+
+<div style="font: 14px Helvetica; margin: 5px auto; text-align: center; line-height: 25px;">
+  <div>
+    <br><br>
+    <hr/>
+    Copyright &copy; &nbsp;&nbsp;2020-2021&nbsp; 
+    <a href="https://github.com/ashipiling">ASHIPILING</a> ALL RIGHT RESERVED<br/>
+    联系方式：ashipiling321@gmail.com<br/>
+    ICP:<a href="#">浙ICP备05021949</a>
+  </div>
+  <!-copyright end-->
+</div> <!--footer end--> 
+  
+
+</body>
+</html>
