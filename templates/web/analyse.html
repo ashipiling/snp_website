@@ -12,5 +12,54 @@
    {{ text }}
 </h2>
 
+    <table border="1">
+        <tr>
+            <th>snp_type</th>
+            <th>location</th>
+            <th>isolated_time</th>
+            <th>snp_site_1</th>
+            <th>snp_site_2</th>
+            <th>snp_site_3</th>
+            <th>snp_site_4</th>
+            <th>snp_site_5</th>
+            <th>snp_site_6</th>
+            <th>snp_site_7</th>
+            <th>snp_site_8</th>
+            <th>snp_site_9</th>
+            <th>snp_site_10</th>
+            <th>snp_site_11</th>
+            <th>snp_site_12</th>
+            <th>snp_site_13</th>
+            <th>snp_site_14</th>
+            <th>snp_site_15</th>
+            <th>snp_site_16</th>
+        </tr>
+
+            {% for i in text %}
+                <tr>
+                <td>{{ i.snp_type }}</td>
+                <td>{{ i.location }}</td>
+                <td>{{ i.isolated_time }}</td>
+                <td>{{ i.snp_site_1 }}</td>
+                <td>{{ i.snp_site_2 }}</td>
+                <td>{{ i.snp_site_3 }}</td>
+                <td>{{ i.snp_site_4 }}</td>
+                <td>{{ i.snp_site_5 }}</td>
+                <td>{{ i.snp_site_6 }}</td>
+                <td>{{ i.snp_site_7 }}</td>
+                <td>{{ i.snp_site_8 }}</td>
+                <td>{{ i.snp_site_9 }}</td>
+                <td>{{ i.snp_site_10 }}</td>
+                <td>{{ i.snp_site_11 }}</td>
+                <td>{{ i.snp_site_12 }}</td>
+                <td>{{ i.snp_site_13 }}</td>
+                <td>{{ i.snp_site_14 }}</td>
+                <td>{{ i.snp_site_15 }}</td>
+                <td>{{ i.snp_site_16 }}</td>
+                </tr>
+            {% endfor %}
+
+    </table>
+
 </body>
 </html>
