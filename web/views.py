@@ -15,8 +15,8 @@ def index(request):
 #     return render( request, 'web/index.html', context={'welcome': snp_list} )
 
 def analyse(request):
-    text = SNP.objects.get(id=1)
-    return render(request, 'web/analyse.html', {'text': text})
+    text = SNP.objects.all()
+    return render(request, 'web/analyse.html', context={'text': text} )
 
 def detail_sa(request):
     snp_list = SNP.objects.all()
