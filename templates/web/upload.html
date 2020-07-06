@@ -34,12 +34,18 @@
             display: inline-block;
             color:red;}
 
-
-
   </style>
 </head>
 
 <body>
+
+//3秒钟之后跳转到指定的页面
+<script language="JavaScript" type="text/javascript">
+        function Redirect(){
+                    window.location = 'http://www.baidu.com';   //要跳转的页面
+            }
+        setTimeout('Redirect()', 3000);       //第二个参数是时间，单位毫秒
+</script>
 
 <div class="title-banner">
   <div class="title-banner-image">
