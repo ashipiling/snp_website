@@ -176,7 +176,9 @@
           <option value="Staphylococcus">Staphylococcus</option>
         </select>
         <br><br>
-        <form enctype="multipart/form-data" action="upload/" method="post" style="width: 400px">请选择文件：
+        <form enctype="multipart/form-data" action="upload/" method="post" style="width: 400px">
+            {% csrf_token %}
+            请选择文件：
            <input type="file" name="myfile" />
            <br><br>上 &nbsp; &nbsp; &nbsp; &nbsp; 传 &nbsp; ：
            <input type="submit" value="按我！" />  
