@@ -8,4 +8,5 @@ urlpatterns = [
            	    path('sm/', views.detail_sm, name='Salmonella'),
            	    path('lm/', views.detail_lm, name='Listeria'),
            	    path('analyse/', views.analyse, name='analyse'),
+	            path('upload/', views.upload,name='upload'),
            	    ]
