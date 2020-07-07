@@ -37,7 +37,7 @@ class SNP(models.Model):
     snp_site_16 = models.CharField(max_length = 1)
     # 创建人名字
     author = models.ForeignKey(User,verbose_name='添加者', on_delete=models.CASCADE)
-    file = models.FileField(upload_to='file/')
+    #file = models.FileField(upload_to='file/')
 
     class Meta:
         verbose_name = 'snp明细'
