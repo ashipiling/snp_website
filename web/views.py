@@ -52,7 +52,7 @@ def upload(request):
                     snp_site_5 = info[6],snp_site_6 = info[7],snp_site_7 = info[8],snp_site_8 = info[9],
                     snp_site_9 = info[10],snp_site_10 = info[11],snp_site_11 = info[12],snp_site_12 = info[13],
                     snp_site_13 = info[14],snp_site_14 = info[15],snp_site_15 = info[16],snp_site_16 = info[17],)
-            s.author = 1
+            s.author = 'luohao'
             s.save()
         #f.close()
 
