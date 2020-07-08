@@ -38,7 +38,7 @@ def upload(request):
 
 
     # 获取file类型的input标签值，即文件内容
-    file = request.files['file']
+    file = request.FILES['file']
 
     workbook = xlrd.open_workbook( filename=None, file_contents=file.read() )
     sheet1 = workbook.sheet_by_index(0)  # sheet索引从0开始
