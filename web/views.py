@@ -38,8 +38,8 @@ def upload(request):
 
 
     # 获取file类型的input标签值，即文件内容
-    files = request.data
-    file = files['file']
+    file = request.files['file']
+
     workbook = xlrd.open_workbook( filename=None, file_contents=file.read() )
     sheet1 = workbook.sheet_by_index(0)  # sheet索引从0开始
     print(sheet1.name, sheet1.nrows, sheet1.ncols)
