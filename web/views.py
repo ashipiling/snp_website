@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from django.http import HttpResponse
 from .models import SNP
 from django.contrib.auth.models import User
@@ -10,11 +9,6 @@ def index(request):
     return render(request, 'web/index.html', context={
         'title': 'CATG_SNP'
     })
-
-
-# def index(request):
-#     snp_list = SNP.objects.all()
-#     return render( request, 'web/index.html', context={'welcome': snp_list} )
 
 def analyse(request):
     text = SNP.objects.all()
@@ -42,7 +36,6 @@ def upload(request):
 
     workbook = xlrd.open_workbook( filename=None, file_contents=file.read() )
     sheet1 = workbook.sheet_by_index(0)  # sheet索引从0开始
-    print(sheet1.name, sheet1.nrows, sheet1.ncols)
 
     for i in range(1, sheet1.nrows):
         info = sheet1.row_values(i)
@@ -56,5 +49,5 @@ def upload(request):
         s.save()
 
 
-    return HttpResponse('OK')
+    return render(request, 'web/upload.html')
 
