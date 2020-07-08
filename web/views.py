@@ -8,7 +8,7 @@ from django.utils import timezone
 
 def index(request):
     return render(request, 'web/index.html', context={
-        'title': 'CATG_SNP首页'
+        'title': 'CATG_SNP'
     })
 
 
@@ -35,9 +35,7 @@ def detail_lm(request):
     return render( request, 'web/index.html', context={'welcome': snp_list} )
 
 def upload(request):
-    print("前端数据: ", request.POST)
-    print("file:", request.FILES)
- 
+
     for item in request.FILES:
 
         obj = request.FILES.get(item)
