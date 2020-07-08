@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 import xlrd
 
-
 def index(request):
     return render(request, 'web/index.html', context={
         'title': 'CATG_SNP'
@@ -38,10 +37,9 @@ def detail_lm(request):
 def upload(request):
 
 
-    filename = request.POST.get('fileName')
     # 获取file类型的input标签值，即文件内容
-    file = request.FILES.get('fileContent')
-
+    files = request.data
+    file = files['file']
     workbook = xlrd.open_workbook( filename=None, file_contents=file.read() )
     sheet1 = workbook.sheet_by_index(0)  # sheet索引从0开始
     print(sheet1.name, sheet1.nrows, sheet1.ncols)
