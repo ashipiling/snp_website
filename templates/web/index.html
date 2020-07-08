@@ -154,7 +154,6 @@
     </div>
     <div class="snp_align" style="width: 33%; height: 96%; background: url(/static/css/align.png) no-repeat; display: inline-block;">
       <div class="align_div">
-
         <br>
         <form enctype="multipart/form-data" action="/upload/" method="post" style="width: 400px">请选择文件：
            <input type="file" name="myfile" />
@@ -164,9 +163,8 @@
       </div>
     </div>
     <div class="upload_data" style="width: 32%; height: 96%; background: url(/static/css/6.png) no-repeat; display: inline-block;">
-
       <div class="upload_div">
-        <br><br>
+        <br>
         <form enctype="multipart/form-data" action="upload/" method="post" style="width: 400px">
             {% csrf_token %}
             请选择文件：
