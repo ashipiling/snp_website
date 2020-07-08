@@ -1,12 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
 from django.http import HttpResponse
 from .models import SNP
 from django.contrib.auth.models import User
 from django.utils import timezone
 
- 
+
 def index(request):
     return render(request, 'web/index.html', context={
         'title': 'CATG_SNP??'
@@ -36,19 +35,14 @@ def detail_lm(request):
     return render( request, 'web/index.html', context={'welcome': snp_list} )
 
 def upload(request):
-    #???
     print("????: ", request.POST)
     print("file:", request.FILES)
  
     for item in request.FILES:
 
-        obj = request.FILES.get(item)      # ????????
-        #filename = obj.name            # ?????
-        #f = open(filename, 'rb')
+        obj = request.FILES.get(item)  
 
         for line in obj.chunks():
-
-            #f.write(line)
             info = line.split()
             s = SNP(location = info[1], snp_type = info[0], isolated_time = timezone.now(),created_time =timezone.now() , modified_time =timezone.now(),
                     snp_site_1 = info[2],snp_site_2 = info[3],snp_site_3 = info[4],snp_site_4 = info[5],
@@ -57,7 +51,6 @@ def upload(request):
                     snp_site_13 = info[14],snp_site_14 = info[15],snp_site_15 = info[16],snp_site_16 = info[17],)
             s.author = User.objects.get(username='luohao')
             s.save()
-        #f.close()
 
     return HttpResponse('OK')
 
